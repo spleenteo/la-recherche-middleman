@@ -1,0 +1,12 @@
+- content_for(:head)
+  == dato_meta_tags(page)
+
+.nav--breadcrumbs
+  .nav__item
+    = link_to "Home",
+      "/#{I18n.locale}/",
+      title: "Homepage"
+
+  .nav__item= page.title
+
+h1= page.title

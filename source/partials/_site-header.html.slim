@@ -1,0 +1,32 @@
+nav.site-header
+  = link_to "#",
+    class: "site-header__hamburger js-nav-toggler",
+    title: t('nav.open_nav')
+
+  .site-header__locale-switcher
+
+  = link_to "/#{I18n.locale}/",
+    class: "site-header__logo",
+    title: t('nav.homepage')
+      = image_tag "logo.svg", alt: dato.site.name
+
+  .site-header__socials
+
+  .site-header__main-nav
+    .site-header__main-nav__item
+      = link_to t('nav.homepage'),
+        "/#{I18n.locale}/",
+        class: "site-header__main-nav__link",
+        title: t('nav.homepage')
+
+    .site-header__main-nav__item
+      = link_to dato.about_page.title,
+        "/#{I18n.locale}/",
+        class: "site-header__main-nav__link",
+        title: dato.about_page.title
+
+    .site-header__main-nav__item
+      = link_to t('nav.products'),
+        "/#{I18n.locale}/",
+        class: "site-header__main-nav__link",
+        title: t('nav.products')

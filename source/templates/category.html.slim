@@ -1,0 +1,27 @@
+- parent ||= nil
+
+- content_for(:head)
+  == dato_meta_tags(page)
+
+.nav--breadcrumbs
+  .nav__item
+    = link_to t('nav.homepage'),
+      "/#{I18n.locale}/",
+      title: t('nav.homepage')
+
+  - if parent
+    .nav__item
+      = link_to parent.title,
+        "/#{I18n.locale}/#{page.parent.slug}/",
+        title: parent.title
+
+  .nav__item= page.title
+
+h1= page.title
+
+- if !parent
+  .nav
+    - page.children.each do |children_category|
+      .nav__item
+        = link_to children_category.title,
+          "/#{I18n.locale}/#{page.slug}/#{children_category.slug}"

@@ -1,0 +1,29 @@
+- content_for(:head)
+  == dato_meta_tags(page)
+
+.nav--breadcrumbs
+  .nav__item
+    = link_to t('nav.homepage'),
+      "/#{I18n.locale}/",
+      title: t('nav.homepage')
+
+  - if page.category.parent.present?
+    .nav__item
+      = link_to page.category.parent.title,
+        "/#{I18n.locale}/#{page.category.parent.slug}/",
+        title: page.category.parent.title
+
+    .nav__item
+      = link_to page.category.title,
+        "/#{I18n.locale}/#{page.category.parent.slug}/#{page.category.slug}/",
+        title: page.category.title
+
+  - else
+    .nav__item
+      = link_to page.category.title,
+        "/#{I18n.locale}/#{page.category.slug}/",
+        title: page.category.title
+
+  .nav__item= page.title
+
+h1= page.title
