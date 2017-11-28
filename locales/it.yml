@@ -1,2 +1,8 @@
 it:
-  
+  nav:
+    open_nav: "Menu"
+    homepage: "Home"
+    products: "Prodotti"
+
+  actions:
+    continue: "Vai"

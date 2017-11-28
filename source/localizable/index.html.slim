@@ -1,13 +1,21 @@
 - content_for(:head)
   == dato_meta_tags(dato.homepage)
 
-// hero
+header.hero
+  .hero__background
+    .hero__background__title
+
+  .hero__heading
+    .hero__heading__action
+    .hero__heading__title
+
 
 // intro
 
 // about
 
-= link_to dato.about_page.title,
-  "/#{I18n.locale}/#{dato.about_page.slug}/",
-  class: "button",
-  title: dato.about_page.title
+section
+  = link_to dato.about_page.title,
+    "/#{I18n.locale}/#{dato.about_page.slug}/",
+    class: "button",
+    title: dato.about_page.title

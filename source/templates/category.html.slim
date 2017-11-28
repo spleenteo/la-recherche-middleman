@@ -3,7 +3,7 @@
 - content_for(:head)
   == dato_meta_tags(page)
 
-.nav--breadcrumbs
+nav.nav--breadcrumbs
   .nav__item
     = link_to t('nav.homepage'),
       "/#{I18n.locale}/",
@@ -17,11 +17,18 @@
 
   .nav__item= page.title
 
-h1= page.title
+header
+  h1= page.title
 
 - if !parent
-  .nav
+  nav.nav
     - page.children.each do |children_category|
       .nav__item
         = link_to children_category.title,
           "/#{I18n.locale}/#{page.slug}/#{children_category.slug}"
+
+section
+  .wrap--on-tab
+    - products.each do |product|
+      = partial "partials/product_preview",
+        locals: {product: product}

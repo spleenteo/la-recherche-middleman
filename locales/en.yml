@@ -1,2 +1,8 @@
 en:
-  
+  nav:
+    open_nav: "Menu"
+    homepage: "Home"
+    products: "Products"
+
+  actions:
+    continue: "Continue"

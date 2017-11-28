@@ -1,0 +1,7 @@
+= link_to "/#{I18n.locale}/#{product.slug}/",
+  class: "showcase",
+  title: product.title
+    img.showcase__image
+    .showcase__heading
+      .showcase__title= product.title
+      .showcase__action= t('actions.continue')

@@ -1,12 +1,15 @@
 - content_for(:head)
   == dato_meta_tags(page)
 
-.nav--breadcrumbs
+- content_for(:nav_html_class) { "site-header--transparent"}
+
+nav.nav--breadcrumbs
   .nav__item
-    = link_to "Home",
+    = link_to t('nav.homepage'),
       "/#{I18n.locale}/",
-      title: "Homepage"
+      title: t('nav.homepage')
 
   .nav__item= page.title
 
-h1= page.title
+header
+  h1= page.title
