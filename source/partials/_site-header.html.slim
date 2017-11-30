@@ -1,6 +1,6 @@
 - html_class ||= nil
 
-nav.site-header class="#{html_class}"
+nav.site-header class=(yield_content :nav_html_class)
   = link_to "#",
     class: "site-header__hamburger js-nav-toggler",
     title: ""

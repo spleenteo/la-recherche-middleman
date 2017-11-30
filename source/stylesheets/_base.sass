@@ -1,6 +1,9 @@
 html, body
   height: 100%
 
+*
+  box-sizing: border-box
+
 html
   +rem-html-reset(0.9)
 
@@ -18,7 +21,6 @@ body
 
 a
   color: $base-body-color
-  text-decoration: underline
 
 ul, ol, blockquote
   padding-left: 0
@@ -97,6 +99,7 @@ th, td
 
 img
   max-width: 100%
+  vertical-align: top
 
 legend
   color: $light-body-color

@@ -2,8 +2,7 @@ doctype 5
 html lang=I18n.locale
   head= partial "partials/head"
   body
-    = partial "partials/site-header",
-      locals: {html_class: (yield_content :nav_html_class)}
+    = partial "partials/site-header"
     = yield
     = partial "partials/site-footer"
     = partial "partials/js_includes"
