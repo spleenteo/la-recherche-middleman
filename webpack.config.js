@@ -10,7 +10,10 @@ module.exports = {
     styles: __dirname + '/source/stylesheets/application.sass'
   },
   resolve: {
-    root: __dirname + '/source/javascripts'
+    root: __dirname + '/source/javascripts',
+    alias: {
+      'slick': 'slick-carousel/slick/slick'
+    }
   },
   output: {
     path: __dirname + '/.tmp/dist',
