@@ -1,7 +1,8 @@
+- class_modifier ||= nil
+
 = link_to "/#{I18n.locale}/#{product.slug}/",
   title: product.title do
-  div class= "showcase #{class_modifier}" style= "background-image: url('#{product.images_gallery.first.url})'"
-    img.showcase__image
+  div class="showcase #{class_modifier}" style="background-image: url('#{product.images_gallery.first.url}')"
     .showcase__heading
       .showcase__title= product.title
       .showcase__action= t('actions.continue')

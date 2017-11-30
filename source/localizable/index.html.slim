@@ -12,9 +12,12 @@ header.hero
     .hero__heading__title
 
 
-.slick-slider
-  - 3.times.each do
-    h1= "pippo"
+.homepage-slider
+  - dato.products_categories.select{ |category| !category.parent}.sort_by(&:position).each do |category|
+    = partial "partials/category_preview",
+      locals: {category: category, class_modifier: "showcase--big-white"}
+
+
 // intro
 
 // about

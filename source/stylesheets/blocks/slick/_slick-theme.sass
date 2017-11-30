@@ -24,6 +24,7 @@
   padding: 0
   border: none
   outline: none
+  z-index: 1
 
   &:hover, &:focus
     outline: none
@@ -46,27 +47,27 @@
     -moz-osx-font-smoothing: grayscale
 
 .slick-prev
-  left: -25px
+  left: 25px
 
   [dir="rtl"] &
     left: auto
     right: -25px
 
   &:before
-    content: $slick-prev-character
+    @extend .icon--hamburger:before
 
     [dir="rtl"] &
       content: $slick-next-character
 
 .slick-next
-  right: -25px
+  right: 25px
 
   [dir="rtl"] &
     left: -25px
     right: auto
 
   &:before
-    content: $slick-next-character
+    @extend .icon--cross:before
 
     [dir="rtl"] &
       content: $slick-prev-character

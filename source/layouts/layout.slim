@@ -3,6 +3,6 @@ html lang=I18n.locale
   head= partial "partials/head"
   body
     = partial "partials/site-header"
-    = yield
+    .wrap--on-wall= yield
     = partial "partials/site-footer"
     = partial "partials/js_includes"

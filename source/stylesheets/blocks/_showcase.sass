@@ -1,36 +1,58 @@
 .showcase
-  width: 100%
-  background-size: contain
+  background-size: cover
   background-position: center center
-  text-align: center
   height: 200px
   background-color: $light-bg-color
-
-.showcase__image
+  position: relative
 
 .showcase__heading
-  width: 300px
-  margin: 0 auto
+  +center
+  width: 220px
   +padding(3)
   background-color: $primary-color
+  text-align: center
 
 .showcase__title
   +heading-font-family
-  text-transform: uppercase
   color: $blue-color
-  font-size: 20px
-  line-height: 45px
+  +font-size(epsilon)
 
-.showcase--white
+.showcase__action
+  display: none
+
+.showcase--big-white
   @extend .showcase
+  height: 500px
+
   .showcase__title
     color: $white-color
-    font-size: 24px
+    +font-size(delta)
 
   .showcase__action
+    display: block
     +heading-font-family
-    text-transform: uppercase
     color: $blue-color
-    font-size: 12px
-    +at-breakpoint(tab)
-      font-size: 16px
+    +font-size(milli)
+
++at-breakpoint(tab)
+  .showcase
+    height: 270px
+
+  .showcase--big-white
+    .showcase__heading
+      width: 300px
+
+    .showcase__action
+      +font-size(regular)
+
+  .showcase--big-white
+    height: 500px
+
++at-breakpoint(wall)
+  .showcase
+    .showcase__heading
+      width: 250px
+
+  .showcase--big-white
+    .showcase__heading
+      width: 430px
