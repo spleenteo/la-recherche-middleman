@@ -1,0 +1,9 @@
+- class_modifier ||= nil
+- category_path = category.parent ? "/#{I18n.locale}/#{category.parent.slug}/#{category.slug}/" : "/#{I18n.locale}/#{category.slug}/"
+
+= link_to category_path,
+  title: category.title do
+  div class="showcase #{class_modifier}" style="background-image: url('#{category.cover.url}')"
+    .showcase__heading
+      .showcase__title= category.title
+      .showcase__action= t('actions.continue')
