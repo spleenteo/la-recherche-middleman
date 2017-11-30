@@ -1,6 +1,6 @@
 = link_to "/#{I18n.locale}/#{product.slug}/",
-  class: "showcase",
-  title: product.title
+  title: product.title do
+  div class= "showcase #{class_modifier}" style= "background-image: url('#{product.images_gallery.first.url})'"
     img.showcase__image
     .showcase__heading
       .showcase__title= product.title

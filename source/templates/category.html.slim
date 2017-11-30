@@ -33,4 +33,4 @@ section
   .wrap--on-tab
     - products.each do |product|
       = partial "partials/product_preview",
-        locals: {product: product}
+        locals: {product: product, class_modifier: "showcase--white"}

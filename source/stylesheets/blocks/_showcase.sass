@@ -1,0 +1,36 @@
+.showcase
+  width: 100%
+  background-size: contain
+  background-position: center center
+  text-align: center
+  height: 200px
+  background-color: $light-bg-color
+
+.showcase__image
+
+.showcase__heading
+  width: 300px
+  margin: 0 auto
+  +padding(3)
+  background-color: $primary-color
+
+.showcase__title
+  +heading-font-family
+  text-transform: uppercase
+  color: $blue-color
+  font-size: 20px
+  line-height: 45px
+
+.showcase--white
+  @extend .showcase
+  .showcase__title
+    color: $white-color
+    font-size: 24px
+
+  .showcase__action
+    +heading-font-family
+    text-transform: uppercase
+    color: $blue-color
+    font-size: 12px
+    +at-breakpoint(tab)
+      font-size: 16px
