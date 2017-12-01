@@ -1,8 +1,13 @@
 - content_for(:head)
   == dato_meta_tags(page)
 
-header
-  h1= page.title
+.page-slider
+  - page.images_gallery.each do |image|
+    div class="showcase" style="background-image: url('#{image.url}')"
+
+.wrap: .page
+  .page__title
+    h1= page.title
 
   nav.nav--breadcrumbs
     .nav__item
@@ -28,3 +33,24 @@ header
           title: page.category.title
 
     .nav__item= page.title
+
+  .page__text
+    h1= page.text
+
+  .page__subtitle= t("product.features")
+  .page__text Gotham's been good to our family, but the city's been suffering. People less fortunate than us have been enduring very hard times. So we built a new, cheap, public transportation system to unite the city. And at the center, Wayne tower. A little the worse for wear, I'm afraid.
+
+.wrap: .cta
+  = link_to "/#{I18n.locale}/#{dato.contacts_page.slug}/",
+    title: dato.contacts_page.title
+      .cta__heading
+        .cta__title Sei interessato?
+        .cta__action Contattaci
+
+- if page.related_products.any?
+  .wrap: .space--both-5: .page
+    .page__subtitle= t("product.more")
+  - page.related_products.each do |product|
+    = partial "partials/product_preview",
+      locals: {product: product}
+    .space--both-3

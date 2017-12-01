@@ -16,6 +16,10 @@ it:
     call_title: "Chiama"
     mail_title: "Invia un email"
 
+  product:
+    features: "Caratteristiche"
+    more: "Altri tavoli"
+
   footer:
     dato_title: "CMS per siti statici"
     credits_label: "Design e development by Cantiere Creativo"
