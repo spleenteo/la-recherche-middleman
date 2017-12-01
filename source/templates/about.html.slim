@@ -3,6 +3,10 @@
 
 - content_for(:nav_html_class) { "site-header--transparent"}
 
+header.hero
+  .hero__background
+    h1.hero__background__title= page.title
+
 nav.nav--breadcrumbs
   .nav__item
     = link_to t('nav.homepage'),
@@ -10,6 +14,3 @@ nav.nav--breadcrumbs
       title: t('nav.homepage')
 
   .nav__item= page.title
-
-header
-  h1= page.title

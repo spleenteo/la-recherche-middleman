@@ -1,42 +1,22 @@
 - html_class ||= nil
 
 nav.site-header class=(yield_content :nav_html_class)
-  = link_to "#",
-    class: "site-header__hamburger js-nav-toggler",
-    title: ""
-      i.icon--hamburger
+  .wrap
+    .site-header__inner
+      = link_to "#",
+        class: "site-header__hamburger js-nav-toggler",
+        title: t('nav.open_nav')
+          i.icon--hamburger
 
-  .site-header__locale-switcher
+      = partial "partials/locales-switcher-nav",
+        locals: {html_class: "site-header__locale-switcher"}
 
-  = link_to "/#{I18n.locale}/",
-    class: "site-header__logo",
-    title: t('nav.homepage')
-      = image_tag "logo.svg",
-        alt: dato.site.name
-
-  .site-header__socials
-
-  /.site-header__main-nav
-    .site-header__main-nav__item
-      = link_to t('nav.homepage'),
-        "/#{I18n.locale}/",
-        class: "site-header__main-nav__link",
+      = link_to " ", "/#{I18n.locale}/",
+        class: "site-header__logo",
         title: t('nav.homepage')
 
-    .site-header__main-nav__item
-      = link_to dato.about_page.title,
-        "/#{I18n.locale}/",
-        class: "site-header__main-nav__link",
-        title: dato.about_page.title
+      = partial "partials/socials-nav",
+        locals: {html_class: "site-header__socials"}
 
-    .site-header__main-nav__item
-      = link_to t('nav.products'),
-        "/#{I18n.locale}/",
-        class: "site-header__main-nav__link",
-        title: t('nav.products')
-
-    .site-header__main-nav__item
-      = link_to dato.contacts_page.title,
-        "/#{I18n.locale}/",
-        class: "site-header__main-nav__link",
-        title: dato.contacts_page.title
+      = partial "partials/main-nav",
+        locals: {html_class: "site-header__main-nav", show_products: true}

@@ -3,6 +3,15 @@ global.jQuery = $;
 require('slick');
 
 $(document).ready(function(){
+  $(".js-nav-toggler").click(function(e){
+    e.preventDefault;
+    $(".canvas__overlay").show();
+  });
+  $(".js-nav-close").click(function(e){
+    e.preventDefault;
+    $(".canvas__overlay").hide();
+  });
+
   $(".homepage-slider").slick({
     mobileFirst: true,
     slidesToShow: 1,

@@ -1,6 +1,42 @@
-footer.footer: .footer__inner
-  = partial "partials/products_nav",
-    locals: {html_class: "footer__nav", show_second_level: true}
-
+footer.site-footer
   .wrap
-    = link_to "Made with DatoCMS", "https://datocms.com"
+    .site-footer__logo
+      = image_tag "logo-full-rev.svg",
+        alt: dato.site.name,
+        title: dato.site.name
+
+    = partial "partials/socials-nav",
+      locals: {html_class: "site-footer__socials"}
+
+    = partial "partials/main-nav",
+      locals: {html_class: "site-footer__nav"}
+
+    .site-footer__address
+      = dato.contacts_page.address
+      br
+      = link_to dato.contacts_page.phone,
+        "tel:#{dato.contacts_page.phone}",
+        class: "site-footer__link",
+        title: t('actions.call_title'),
+        target: "_blank"
+
+      =< "•"
+      =< link_to dato.contacts_page.email,
+        "mailto:#{dato.contacts_page.email}",
+        class: "site-footer__link",
+        title: t('actions.mail_title'),
+        target: "_blank"
+
+    .site-footer__credits
+      = link_to t('footer.credits_label'),
+        t('footer.credits_url'),
+        class: "site-footer__link",
+        title: t('footer.credits_title'),
+        target: "_blank"
+
+      =< "•"
+      =< link_to "Made with DatoCMS",
+        "https://www.datocms.com",
+        class: "site-footer__link",
+        title: t('footer.dato_title'),
+        target: "_blank"

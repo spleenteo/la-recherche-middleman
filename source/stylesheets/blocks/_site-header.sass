@@ -1,20 +1,181 @@
 .site-header
   background-color: $white-color
+  z-index: 1
+
+.site-header__inner
+  display: flex
+  align-items: center
+  justify-content: space-between
   position: relative
 
 .site-header__hamburger
+  flex-basis: 20px
+  +vertical-padding(1)
+  i
+    +font-size(delta)
+    margin-top: 3px
 
+.site-header__locale-switcher
+  display: none
+
+.site-header__locale-switcher__link
+  +inline-block
+  +heading-font-family
+  +padding(1)
+
+  &.is-active
+    text-decoration: underline
+    color: $blue-color
+
+  &:first-child
+    padding-left: 0
+
+.site-header__logo
+  background-image: image-url('logo-only-text.svg')
+  background-repeat: no-repeat
+  background-position: center center
+  width: 140px
+  height: 40px
+
+.site-header__socials
+  flex-basis: 20px
+  text-align: right
+
+.site-header__socials__link
+  display: none
+  +padding(1)
+
+  i
+    +font-size(epsilon)
+
+  &:last-child
+    padding-right: 0
+
+.site-header__main-nav
+  display: none
+  text-align: center
+
+.site-header__main-nav__item
+  +inline-block
+
+.site-header__main-nav__link
+  display: block
+  +heading-font-family
+  +horizontal-margin(1)
+  +horizontal-padding(1)
+  +vertical-padding(3)
+
+.site-header__main-nav__fl
+  +position(absolute, null 0 null 0)
+  z-index: 2
+  background-color: rgba($brown-color, .8)
+  display: flex
+  justify-content: space-around
+  +padding(3)
+  &:before
+    +position(absolute, -14px null null null)
+    content: " "
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 0 13px 14px 13px
+    border-color: transparent transparent rgba($brown-color, .8) transparent
+    transform: rotate(360deg)
+    left: calc(50% - 90px)
+
+.site-header__main-nav__fl__item
+  +horizontal-margin(2)
+
+.site-header__main-nav__fl__link
+  display: block
+  +heading-font-family
+  +padding(2)
+  color: $blue-color
+
+.site-header__main-nav__sl__item
+
+.site-header__main-nav__sl__link
+  display: block
+  +padding(1)
+  color: $blue-color
+  +vertical-margin(0.5)
 
 .site-header--no-logo
   @extend .site-header
-  .site-header__logo
-    display: none
 
 .site-header--transparent
   @extend .site-header
   background-color: transparent
   +position(absolute, 0 0 null 0)
 
+  .site-header__logo
+    background-image: image-url('logo-only-text-rev.svg')
+
   .site-header__hamburger,
-  .site-header__socials a
+  .site-header__socials__link,
+  .site-header__main-nav__link,
+  .site-header__locale-switcher__link
     color: $rev-body-color
+
+  .site-header__locale-switcher__link
+    &.is-active
+      color: $blue-color
+
++at-breakpoint(lap)
+  .site-header
+    +padding-top(3)
+
+  .site-header__inner
+    flex-wrap: wrap
+    align-items: flex-start
+
+  .site-header__hamburger
+    display: none
+
+  .site-header__logo
+    background-image: image-url('logo-compact.svg')
+    width: 160px
+    display: block
+    +margin-bottom(3)
+
+  .site-header__locale-switcher
+    display: block
+    flex-basis: 90px
+
+  .site-header__socials
+    flex-basis: 90px
+
+  .site-header__socials__link
+    +inline-block
+
+  .site-header__main-nav
+    display: block
+    width: 100%
+
+  .site-header--transparent
+    .site-header__logo
+      background-image: image-url('logo-compact-rev.svg')
+
++at-breakpoint(wall)
+  .site-header__logo
+    background-image: image-url('logo-full.svg')
+    width: 200px
+    height: 120px
+
+  .site-header--transparent
+    .site-header__logo
+      background-image: image-url('logo-full-rev.svg')
+
+  .site-header--no-logo
+    .site-header__socials
+      order: 3
+
+    .site-header__inner
+      align-items: center
+
+    .site-header__logo
+      display: none
+
+    .site-header__main-nav
+      width: auto
+      order: 2

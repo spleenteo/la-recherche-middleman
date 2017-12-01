@@ -1,0 +1,48 @@
+.canvas
+
+.canvas__main
+
+.canvas__overlay
+  display: none
+  z-index: 2
+  +position(fixed, 0 0 0 0)
+  background-color: $brown-color
+  color: $rev-body-color
+
+.canvas__overlay__header
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.canvas__overlay__close
+  color: $rev-body-color
+  +vertical-padding(1)
+  i
+    +font-size(delta)
+
+.canvas__overlay__locales-switcher
+
+.canvas__overlay__locales-switcher__link
+  +heading-font-family
+  +inline-block
+  color: $rev-body-color
+  +padding(1)
+  &:last-child
+    padding-right: 0
+
+  &.is-active
+    color: $blue-color
+
+.canvas__overlay__nav
+  text-align: center
+  +vertical-margin(5)
+
+.canvas__overlay__nav__item
+  +vertical-margin(1)
+
+.canvas__overlay__nav__link
+  display: block
+  color: $rev-body-color
+  +heading-font-family
+  +padding(1)
+  +font-size(epsilon)

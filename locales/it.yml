@@ -1,8 +1,22 @@
 it:
   nav:
     open_nav: "Menu"
+    close_nav: "Torna al sito"
     homepage: "Home"
     products: "Prodotti"
+    switch_to_ita: "Visualizza il sito in italiano"
+    switch_to_eng: "Visualizza il sito in inglese"
+
+    atmospheres: "Atmosfere"
+    materials: "Materiali"
 
   actions:
     continue: "Vai"
+    call_title: "Chiama"
+    mail_title: "Invia un email"
+
+  footer:
+    dato_title: "CMS per siti statici"
+    credits_label: "Design e development by Cantiere Creativo"
+    credits_url: "https://www.cantierecreativo.net"
+    credits_title: "Realizzazione siti web Firenze"

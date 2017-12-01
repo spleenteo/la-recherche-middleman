@@ -1,0 +1,55 @@
+.site-footer
+  background-color: $brown-color
+  color: $rev-body-color
+  text-align: center
+  +vertical-padding(5)
+
+.site-footer__logo
+  +margin-bottom(3)
+  img
+    max-width: 200px
+
+.site-footer__socials
+  +margin-bottom(3)
+
+.site-footer__socials__link
+  +inline-block
+  +padding(1)
+  color: $rev-body-color
+  i
+    +font-size(delta)
+
+.site-footer__nav
+  +margin-bottom(3)
+
+.site-footer__nav__item
+  +vertical-margin(1)
+
+.site-footer__nav__link
+  +heading-font-family
+  color: $rev-body-color
+  +inline-block
+  +padding(1)
+  +font-size(smallprint)
+
+.site-footer__address
+  +margin-bottom(3)
+  +font-size(smallprint)
+
+.site-footer__credits
+  +font-size(smallprint)
+
+.site-footer__link
+  color: $rev-body-color
+
++at-breakpoint(lap)
+  .site-footer__nav__item
+    +inline-block
+    +horizontal-margin(1)
+
+  .site-footer__nav__link
+    +font-size(regular)
+
+  .site-footer__address,
+  .site-footer__credits
+    +font-size(epsilon)

@@ -1,1 +1,34 @@
 .hero
+
+.hero__background
+  height: 430px
+  background-color: $brown-color
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center center
+  position: relative
+
+.hero__background__title
+  +padding(2)
+  +center
+  +heading-font-family
+  +font-size(delta)
+  text-align: center
+  width: 300px
+  color: $rev-body-color
+
+  img
+    max-width: 300px
+
++at-breakpoint(lap)
+  .hero__background
+    height: 600px
+
+  .hero__background__title
+    +font-size(gamma)
+
++at-breakpoint(wall)
+  .hero__background__title
+    width: 500px
+    img
+      max-width: 500px
