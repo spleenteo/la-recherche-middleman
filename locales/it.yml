@@ -12,6 +12,7 @@ it:
 
   actions:
     continue: "Vai"
+    get_in: "Esplora"
     call_title: "Chiama"
     mail_title: "Invia un email"
 

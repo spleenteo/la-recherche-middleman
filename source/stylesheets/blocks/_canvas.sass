@@ -4,7 +4,7 @@
 
 .canvas__overlay
   display: none
-  z-index: 2
+  z-index: 300
   +position(fixed, 0 0 0 0)
   background-color: $brown-color
   color: $rev-body-color
@@ -40,9 +40,25 @@
 .canvas__overlay__nav__item
   +vertical-margin(1)
 
+  &.is-subnav-visible
+    .canvas__overlay__nav__fl
+      display: block
+
 .canvas__overlay__nav__link
   display: block
   color: $rev-body-color
   +heading-font-family
   +padding(1)
+  +font-size(epsilon)
+
+.canvas__overlay__nav__fl
+  display: none
+
+.canvas__overlay__nav__fl__item
+  +vertical-margin(0.5)
+
+.canvas__overlay__nav__fl__link
+  display: block
+  color: $blue-color
+  +vertical-padding(0.5)
   +font-size(epsilon)

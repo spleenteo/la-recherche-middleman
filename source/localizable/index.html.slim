@@ -4,7 +4,7 @@
 - content_for(:nav_html_class) { "site-header--transparent site-header--no-logo"}
 
 header.hero
-  .hero__background
+  .hero__background style="background-image: url('#{dato.homepage.cover.url(w: '1920' )}')"
     .hero__background__title
       = image_tag "logo-full-rev.svg",
         alt: dato.site.name,
@@ -12,16 +12,16 @@ header.hero
 
   .hero__heading
     .hero__heading__action
-    .hero__heading__title
+      = t('actions.get_in')
 
+    .wrap
+      .hero__heading__title= dato.homepage.title
+      .hero__heading__text= dato.homepage.text
 
 .homepage-slider
   - dato.products_categories.select{ |category| !category.parent}.sort_by(&:position).each do |category|
     = partial "partials/category_preview",
       locals: {category: category, class_modifier: "showcase--big-white"}
-
-
-// intro
 
 // about
 

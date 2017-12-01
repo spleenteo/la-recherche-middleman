@@ -7,6 +7,10 @@
   background-repeat: no-repeat
   background-position: center center
   position: relative
+  &:after
+    content: " "
+    background-color: rgba($brown-color, .6)
+    +position(absolute, 0 0 0 0)
 
 .hero__background__title
   +padding(2)
@@ -16,11 +20,27 @@
   text-align: center
   width: 300px
   color: $rev-body-color
+  z-index: 2
 
   img
     max-width: 300px
 
+.hero__heading
+  +vertical-padding(3)
+  background-color: $brown-color
+  color: $rev-body-color
+
+.hero__heading__title
+  +heading-font-family
+  +font-size(delta)
+  +margin-bottom(2)
+
+.hero__heading__text
+
 +at-breakpoint(lap)
+  .hero__heading
+    +horizontal-padding(3)
+      
   .hero__background
     height: 600px
 
@@ -28,6 +48,9 @@
     +font-size(gamma)
 
 +at-breakpoint(wall)
+  .hero__background
+    height: 800px
+
   .hero__background__title
     width: 500px
     img

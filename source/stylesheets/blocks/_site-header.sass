@@ -1,6 +1,6 @@
 .site-header
   background-color: $white-color
-  z-index: 1
+  z-index: 100
 
 .site-header__inner
   display: flex
@@ -57,31 +57,25 @@
 
 .site-header__main-nav__item
   +inline-block
+  +horizontal-margin(0.5)
+
+  &.is-subnav-visible
+    .site-header__main-nav__fl
+      display: flex
 
 .site-header__main-nav__link
   display: block
   +heading-font-family
-  +horizontal-margin(1)
   +horizontal-padding(1)
   +vertical-padding(3)
 
 .site-header__main-nav__fl
+  display: none
   +position(absolute, null 0 null 0)
-  z-index: 2
-  background-color: rgba($brown-color, .8)
-  display: flex
+  z-index: 101
+  background-color: rgba($white-color, .9)
   justify-content: space-around
   +padding(3)
-  &:before
-    +position(absolute, -14px null null null)
-    content: " "
-    width: 0
-    height: 0
-    border-style: solid
-    border-width: 0 13px 14px 13px
-    border-color: transparent transparent rgba($brown-color, .8) transparent
-    transform: rotate(360deg)
-    left: calc(50% - 90px)
 
 .site-header__main-nav__fl__item
   +horizontal-margin(2)
@@ -90,15 +84,18 @@
   display: block
   +heading-font-family
   +padding(2)
-  color: $blue-color
 
 .site-header__main-nav__sl__item
 
 .site-header__main-nav__sl__link
   display: block
   +padding(1)
-  color: $blue-color
   +vertical-margin(0.5)
+
+.site-header__main-nav__fl__link,
+.site-header__main-nav__sl__link
+  &:hover
+    text-decoration: underline
 
 .site-header--no-logo
   @extend .site-header
@@ -120,6 +117,13 @@
   .site-header__locale-switcher__link
     &.is-active
       color: $blue-color
+
+  .site-header__main-nav__fl
+    background-color: rgba($brown-color, .9)
+
+  .site-header__main-nav__fl__link,
+  .site-header__main-nav__sl__link
+    color: $rev-body-color
 
 +at-breakpoint(lap)
   .site-header
@@ -161,6 +165,9 @@
     background-image: image-url('logo-full.svg')
     width: 200px
     height: 120px
+    
+  .site-header__main-nav__item
+    +horizontal-margin(1)
 
   .site-header--transparent
     .site-header__logo

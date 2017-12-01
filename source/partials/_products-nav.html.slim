@@ -1,4 +1,5 @@
 - html_class ||= nil
+- show_sl_categories ||= nil
 
 ul class="#{html_class}__fl"
   - dato.products_categories.select{ |category| !category.parent }.sort_by(&:position).each do |category|
@@ -7,9 +8,10 @@ ul class="#{html_class}__fl"
         "/#{I18n.locale}/#{category.slug}/",
         class: "#{html_class}__fl__link"
 
-      ul class="#{html_class}__sl"
-        - category.children.each do |children_category|
-          li class="#{html_class}__sl__item"
-            = link_to children_category.title,
-              "/#{I18n.locale}/#{category.slug}/#{children_category.slug}/",
-              class: "#{html_class}__sl__link"
+      - if show_sl_categories
+        ul class="#{html_class}__sl"
+          - category.children.each do |children_category|
+            li class="#{html_class}__sl__item"
+              = link_to children_category.title,
+                "/#{I18n.locale}/#{category.slug}/#{children_category.slug}/",
+                class: "#{html_class}__sl__link"

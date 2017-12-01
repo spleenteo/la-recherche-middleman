@@ -1,5 +1,6 @@
 - html_class ||= nil
 - show_products ||= nil
+- show_sl_categories ||= nil
 
 ul class=html_class
   li class="#{html_class}__item"
@@ -15,9 +16,9 @@ ul class=html_class
       title: dato.about_page.title
 
   - if show_products
-    li class="#{html_class}__item"
+    li class="#{html_class}__item js-products-toggler"
       = link_to t('nav.products'),
-        "/#{I18n.locale}/",
+        "#",
         class: "#{html_class}__link",
         title: t('nav.products')
 

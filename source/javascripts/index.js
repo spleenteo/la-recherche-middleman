@@ -11,6 +11,10 @@ $(document).ready(function(){
     e.preventDefault;
     $(".canvas__overlay").hide();
   });
+  $(".js-products-toggler").click(function(e){
+    e.preventDefault;
+    $(this).toggleClass('is-subnav-visible')
+  });
 
   $(".homepage-slider").slick({
     mobileFirst: true,

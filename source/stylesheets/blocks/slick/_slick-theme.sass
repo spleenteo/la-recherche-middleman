@@ -54,7 +54,7 @@
     right: -25px
 
   &:before
-    @extend .icon--hamburger:before
+    @extend .icon--arrow-left:before
 
     [dir="rtl"] &
       content: $slick-next-character
@@ -67,7 +67,7 @@
     right: auto
 
   &:before
-    @extend .icon--cross:before
+    @extend .icon--arrow-right:before
 
     [dir="rtl"] &
       content: $slick-prev-character
@@ -134,3 +134,18 @@
     &.slick-active button:before
       color: $slick-dot-color-active
       opacity: $slick-opacity-default
+
+
+.slick-slide
+  +at-breakpoint(wall)
+    position: relative
+    &:before
+      transition: background-color 1s .1s $material-ease
+      z-index: 1
+      content: " "
+      background-color: rgba($brown-color, .8)
+      +position(absolute, 0 0 7px 0)
+
+    &.slick-current
+      &::before
+        background-color: rgba($brown-color, 0)
