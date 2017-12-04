@@ -2,7 +2,7 @@
 
 .hero__background
   height: 430px
-  background-color: $brown-color
+  background-color: $secondary-color
   background-size: cover
   background-repeat: no-repeat
   background-position: center center
@@ -27,14 +27,17 @@
 
 .hero__heading
   +vertical-padding(3)
-  background-color: $brown-color
+  background-color: $secondary-color
   color: $rev-body-color
   position: relative
+  text-align: center
 
 .hero__heading__cta
-  +color: $primary-color
-  +center-horizontally
-  margin-top: -20px
+  +position(absolute)
+  left: 50%
+  transform: translateX(-50%) translateY(-100%)
+  +margin-top(-3)
+  width: 300px
 
 .hero__heading__title
   +heading-font-family
@@ -48,13 +51,20 @@
 
 +at-breakpoint(lap)
   .hero__heading
-    +horizontal-padding(3)
+    +padding(5)
+
+  .hero__heading__cta
+    +margin-top(-5)
 
   .hero__background
     height: 600px
 
-  .hero__background__title
+  .hero__background__title,
+  .hero__heading__title
     +font-size(gamma)
+
+  .hero__heading__text
+    +font-size(epsilon)
 
 +at-breakpoint(wall)
   .hero__background

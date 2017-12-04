@@ -5,15 +5,25 @@
   +heading-font-family
   +font-size(delta)
   text-align: center
-  color: $primary-color
+  color: $secondary-color
 
 .page__subtitle
   +padding(2)
   +heading-font-family
   +font-size(regular)
   text-align: center
-  color: $primary-color
+  color: $secondary-color
 
 .page__text
   +vertical-margin(4)
   +font-size(milli)
+
++at-breakpoint(tab)
+  .page__title
+    +font-size(gamma)
+
+  .page__subtitle
+    +font-size(epsilon)
+
+  .page__text
+    +font-size(regular)

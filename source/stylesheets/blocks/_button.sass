@@ -2,9 +2,9 @@
   +heading-font-family
   padding: 0.7em 1em
   text-decoration: none
-  border: 2px solid $base-body-color
   display: inline-block
   vertical-align: middle
+  border: none
   white-space: nowrap
   font-family: inherit
   cursor: pointer
@@ -14,21 +14,12 @@
   -webkit-appearance: none
   border-radius: 0
   box-sizing: border-box
-  transition: box-shadow 0.1s $material-ease, transform 0.1s $material-ease, text-shadow 0.1s $material-ease
   font-size: 1.1em
-  box-shadow: 0 0 0 rgba(black, 0.2)
+  +hover-transition
 
   & + &
     margin-left: 15px
 
-
-  .no-touch &:hover
-    box-shadow: 0 3px 5px rgba(black, 0.2)
-    text-shadow: 0 3px 3px rgba(black, 0.2)
-
-  .no-touch &:active
-    box-shadow: 0 1px 3px rgba(black, 0.2)
-    text-shadow: 0 1px 1px rgba(black, 0.2)
 
   i:first-child
     margin-right: 0.5em
@@ -65,17 +56,17 @@
 
 .button--primary
   color: $primary-color
-  border-color: $primary-color
 
 .button--notice
   color: $notice-color
-  border-color: $notice-color
 
 .button--alert
   color: $alert-color
-  border-color: $alert-color
 
 .button--rev
   @extend .button
   border-color: white
   color: white
+
+.button--brown-bg
+  background-color: $secondary-color
