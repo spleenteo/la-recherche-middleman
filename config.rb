@@ -67,8 +67,18 @@ dato.tap do |dato|
   [:it, :en].each do |locale|
     I18n.with_locale(locale) do
       proxy "/#{locale}/#{dato.about_page.slug}/index.html",
-        "/templates/about.html",
+        "/templates/page.html",
         locals: { page: dato.about_page },
+        locale: locale
+
+      proxy "/#{locale}/#{dato.materials_page.slug}/index.html",
+        "/templates/page.html",
+        locals: { page: dato.materials_page },
+        locale: locale
+
+      proxy "/#{locale}/#{dato.atmospheres_page.slug}/index.html",
+        "/templates/page.html",
+        locals: { page: dato.atmospheres_page },
         locale: locale
 
       proxy "/#{locale}/#{dato.contacts_page.slug}/index.html",
@@ -77,9 +87,10 @@ dato.tap do |dato|
         locale: locale
 
       dato.products_categories.select{ |category| !category.parent }.each do |category|
+        category_products = dato.products.select{ |products| products.category == category}
         proxy "/#{locale}/#{category.slug}/index.html",
           "/templates/first-level-category.html",
-          locals: { page: category, second_level_categories: category.children },
+          locals: { page: category, second_level_categories: category.children, products: category_products},
           locale: locale
 
         category.children.each do |children_category|

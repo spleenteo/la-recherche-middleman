@@ -21,7 +21,14 @@ header.hero
 
 section
   .wrap--on-tab: .grid--center
-    - second_level_categories.each do |category|
-      .grid__item.lap-6-12.wall-4-12: .space--bottom-5
-        = partial "partials/category_preview",
-          locals: {category: category, class_modifier: "showcase"}
+    - if second_level_categories.any?
+      - second_level_categories.each do |category|
+        .grid__item.lap-6-12.wall-4-12: .space--bottom-5
+          = partial "partials/category_preview",
+            locals: {category: category, class_modifier: "showcase"}
+
+    - else
+      - products.each do |product|
+        .grid__item.lap-6-12.wall-4-12: .space--bottom-5
+          = partial "partials/product_preview",
+            locals: {product: product, class_modifier: "showcase--white"}

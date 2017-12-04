@@ -26,16 +26,16 @@ ul class=html_class
         locals: {html_class: html_class, show_sl_categories: show_sl_categories}
 
   li class="#{html_class}__item"
-    = link_to t('nav.atmospheres'),
-      "/#{I18n.locale}/",
+    = link_to dato.atmospheres_page.title,
+      "/#{I18n.locale}/#{dato.atmospheres_page.slug}",
       class: "#{html_class}__link",
-      title: t('nav.atmospheres')
+      title: dato.atmospheres_page.title
 
   li class="#{html_class}__item"
-    = link_to t('nav.materials'),
-      "/#{I18n.locale}/",
+    = link_to dato.materials_page.title,
+      "/#{I18n.locale}/#{dato.materials_page.slug}",
       class: "#{html_class}__link",
-      title: t('nav.materials')
+      title: dato.materials_page.title
 
   li class="#{html_class}__item"
     = link_to dato.contacts_page.title,

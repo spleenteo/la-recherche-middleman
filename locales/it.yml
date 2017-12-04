@@ -1,4 +1,5 @@
 it:
+  iubenda_id: 8278812
   nav:
     open_nav: "Menu"
     close_nav: "Torna al sito"
@@ -18,7 +19,10 @@ it:
 
   product:
     features: "Caratteristiche"
-    more: "Altri tavoli"
+    more: "Altri prodotti"
+    cta:
+      title: "Sei interessato a questo prodotto?"
+      label: "Contattaci"
 
   contacts:
     form:

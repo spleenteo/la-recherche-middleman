@@ -1,29 +1,31 @@
 .page
 
 .page__title
-  +padding(2)
+  +margin-bottom(2)
   +heading-font-family
   +font-size(delta)
-  text-align: center
   color: $secondary-color
 
 .page__subtitle
-  +padding(2)
+  +vertical-margin(2)
   +heading-font-family
-  +font-size(regular)
-  text-align: center
   color: $secondary-color
 
 .page__text
-  +vertical-margin(4)
-  +font-size(milli)
+  +font-size(smallprint)
+
+.page__spacer
+  +vertical-margin(3)
 
 +at-breakpoint(tab)
   .page__title
-    +font-size(gamma)
+    +font-size(beta)
 
   .page__subtitle
     +font-size(epsilon)
 
   .page__text
     +font-size(regular)
+
+  .page__spacer
+    +vertical-margin(5)

@@ -1,8 +1,9 @@
 - class_modifier ||= nil
+- image_url = product.images_gallery.first.url(w: 800, h: 600, fit: "crop", crop: "fit")
 
 = link_to "/#{I18n.locale}/#{product.slug}/",
   class: "showcase #{class_modifier}",
-  style: "background-image: url('#{product.images_gallery.first.url}')",
+  style: "background-image: url('#{image_url}')",
   title: product.title do
     .showcase__heading
       .showcase__title= product.title

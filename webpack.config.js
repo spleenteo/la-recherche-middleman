@@ -12,7 +12,8 @@ module.exports = {
   resolve: {
     root: __dirname + '/source/javascripts',
     alias: {
-      'slick': 'slick-carousel/slick/slick'
+      'slick': 'slick-carousel/slick/slick',
+      'smooth-scroll': 'smooth-scroll/dist/js/smooth-scroll.polyfills'
     }
   },
   output: {

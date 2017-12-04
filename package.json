@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "modernizr": "^3.5.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "smooth-scroll": "^12.1.5"
   }
 }

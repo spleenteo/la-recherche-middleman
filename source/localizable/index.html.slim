@@ -14,7 +14,7 @@ header.hero
     .hero__heading__cta
       = link_to t('actions.get_in'),
         "#over-viewport",
-        class: "button--primary button--expand button--huge button--brown-bg",
+        class: "button--primary button--expand button--huge button--brown-bg js-scroll",
         title: t('actions.get_in')
 
     .wrap
@@ -26,7 +26,8 @@ header.hero
           class: "button--primary",
           title: dato.about_page.title
 
-#over-viewport.homepage-slider
-  - dato.products_categories.select{ |category| !category.parent}.sort_by(&:position).each do |category|
-    = partial "partials/category_preview",
-      locals: {category: category, class_modifier: "showcase--big-white"}
+#over-viewport
+  .single-slider
+    - dato.products_categories.select{ |category| !category.parent}.sort_by(&:position).each do |category|
+      = partial "partials/category_preview",
+        locals: {category: category, class_modifier: "showcase--big-white"}

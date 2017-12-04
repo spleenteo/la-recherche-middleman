@@ -9,15 +9,16 @@
 
   .nav__item= page.title
 
-.wrap: section.page
+.wrap: .align--center: section.page
   h1.page__title= page.title
 
 .wrap--on-wall: .google-map
 
-.wrap: section.page= partial "partials/address",
-    locals: {html_class: "page__text"}
+.wrap: section.page: .align--center
+  = partial "partials/address",
+      locals: {html_class: "page__text"}
 
-.wrap: section.page
+.space--both-5: .wrap--small: section.page
   h2.page__subtitle
     = t('contacts.form.title')
 
@@ -30,7 +31,7 @@
         required: "required"
 
     .form__field
-      = text_field_tag :email,
+      = email_field_tag :email,
         value: "",
         name: t('contacts.form.email.label'),
         placeholder: t('contacts.form.email.placeholder'),
@@ -43,16 +44,16 @@
         placeholder: t('contacts.form.content.placeholder'),
         required: "required"
 
-    .form__field
+    .form__field: .align--center
       label.input--checkbox
         input required="required" type="checkbox"
-          span.input__label.formatted-content
+          span.input__label
             = t('contacts.form.privacy.label')
             =< link_to "Privacy Policy",
               "//www.iubenda.com/privacy-policy/#{I18n.t('iubenda_id')}",
               class: "iubenda-nostyle no-brand iubenda-embed"
 
-    .form__actions
+    .form__actions: .align--center
       = submit_tag :button,
         value: t('contacts.form.submit.label'),
-        class: "button--primary"
+        class: "button--rev button--brown-bg"

@@ -1,9 +1,10 @@
 - class_modifier ||= nil
 - category_path = category.parent ? "/#{I18n.locale}/#{category.parent.slug}/#{category.slug}/" : "/#{I18n.locale}/#{category.slug}/"
+- image_url = category.cover.url( w: 800, h: 600, fit: "crop", crop: "fit")
 
 = link_to category_path,
   class: "showcase #{class_modifier}",
-  style: "background-image: url('#{category.cover.url}')",
+  style: "background-image: url('#{image_url}')",
   title: category.title do
     .showcase__heading
       .showcase__title= category.title

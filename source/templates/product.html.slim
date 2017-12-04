@@ -1,13 +1,12 @@
 - content_for(:head)
   == dato_meta_tags(page)
 
-.page-slider
+.single-slider
   - page.images_gallery.each do |image|
-    div class="showcase" style="background-image: url('#{image.url}')"
+    = image_tag image.url( w: 1920, h: 900, fit: "crop", crop: "fit"), alt: image.alt, title: image.title
 
 .wrap: .page
-  .page__title
-    h1= page.title
+  .page__spacer: .align--center.align--left-on-wall: h1.page__title= page.title
 
   nav.nav--breadcrumbs
     .nav__item
@@ -34,24 +33,27 @@
 
     .nav__item= page.title
 
-  .page__text
-    h1= page.text
+  .grid--wide
+    .grid__item.wall-6-12: .page__spacer: .page__text: .formatted-content= page.text
+    .grid__item.wall-4-12.wall-push-2-12
+      .page__spacer
+        .page__subtitle= t("product.features")
+        .page__text: .formatted-content= page.specs_text
 
-  .page__subtitle= t("product.features")
-  .page__text Gotham's been good to our family, but the city's been suffering. People less fortunate than us have been enduring very hard times. So we built a new, cheap, public transportation system to unite the city. And at the center, Wayne tower. A little the worse for wear, I'm afraid.
-
-.wrap: .cta
-  = link_to "/#{I18n.locale}/#{dato.contacts_page.slug}/",
-    title: dato.contacts_page.title
-      .cta__heading
-        .cta__title Sei interessato?
-        .cta__action Contattaci
+.space--top-3: .wrap: .grid--center
+  .grid__item.wall-6-12
+    = link_to "/#{I18n.locale}/#{dato.contacts_page.slug}/",
+      class: "cta",
+      title: dato.contacts_page.title
+        .cta__heading
+          .cta__title= t("product.cta.title")
+          .cta__action= t("product.cta.label")
 
 - if page.related_products.any?
-  .wrap: .space--both-5: .page
+  .wrap: .page__spacer: .page: .align--center.align--left-on-wall
     .page__subtitle= t("product.more")
 
-  .wrap--on-tab: .grid--center
+  .wrap--on-tab: .grid
     - page.related_products.each do |product|
       .grid__item.lap-6-12.wall-4-12: .space--bottom-5
         = partial "partials/product_preview",

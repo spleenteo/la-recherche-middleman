@@ -1,8 +1,11 @@
 .wrap
   +wrap
 
+.wrap--small
+  +wrap
+  max-width: 900px
+
 @each $name in $breakpoint-names
   .wrap--on-#{$name}
     +at-breakpoint($name)
       +wrap
-

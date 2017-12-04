@@ -1,12 +1,6 @@
 - content_for(:head)
   == dato_meta_tags(page)
 
-- content_for(:nav_html_class) { "site-header--transparent"}
-
-header.hero
-  .hero__background
-    h1.hero__background__title= page.title
-
 .space--both-5: .wrap: .align--center: nav.nav--breadcrumbs
   .nav__item
     = link_to t('nav.homepage'),
@@ -14,3 +8,11 @@ header.hero
       title: t('nav.homepage')
 
   .nav__item= page.title
+
+section.page
+  header
+    .wrap
+      .align--center: h1.page__title= page.title
+
+  .wrap--small
+    .align--center: .page__spacer: .page__text: .formatted-content= page.text

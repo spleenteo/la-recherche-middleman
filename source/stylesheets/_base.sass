@@ -41,13 +41,16 @@ h1, h2, h3, h4, h5, h6
   display: block
   box-sizing: border-box
   width: 100%
-  padding: 10px
-  border: 1px solid $border-color
+  +padding(2)
+  border: none
   -webkit-appearance: none
   border-radius: 0
   background-image: none
+  background-color: $light-bg-color
   transition: border 0.2s $material-ease
   +font-size(regular)
+  max-width: 100%
+  min-width: 100%
 
   &[disabled]
     opacity: 0.9

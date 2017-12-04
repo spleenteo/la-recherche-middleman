@@ -5,4 +5,4 @@
   @each $name in $align-breakpoints
     .align--#{$direction}-on-#{$name}
       +at-breakpoint($name)
-        text-align: #{$direction}
+        text-align: #{$direction} !important

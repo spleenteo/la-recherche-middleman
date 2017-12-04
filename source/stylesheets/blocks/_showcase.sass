@@ -27,7 +27,7 @@
   height: 500px
 
   .showcase__title
-    color: $white-color
+    color: $rev-body-color
     +font-size(delta)
 
   .showcase__action
@@ -41,14 +41,13 @@
     height: 270px
 
   .showcase--big-white
+    height: 600px
+
     .showcase__heading
       width: 300px
 
     .showcase__action
       +font-size(regular)
-
-  .showcase--big-white
-    height: 500px
 
 +at-breakpoint(wall)
   .showcase
@@ -56,5 +55,7 @@
       width: 250px
 
   .showcase--big-white
+    height: 800px
+
     .showcase__heading
       width: 430px

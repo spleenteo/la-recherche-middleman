@@ -1,6 +1,7 @@
 var $ = require("jquery");
 global.jQuery = $;
 require('slick');
+require('smooth-scroll');
 
 $(document).ready(function(){
   $(".js-nav-toggler").click(function(e){
@@ -16,24 +17,7 @@ $(document).ready(function(){
     $(this).toggleClass('is-subnav-visible')
   });
 
-  $(".homepage-slider").slick({
-    mobileFirst: true,
-    slidesToShow: 1,
-    dots: true,
-    infinite: true,
-    centerMode: true,
-    centerPadding: '0px',
-    responsive: [
-      {
-        breakpoint: 1300,
-        settings: {
-          centerPadding: '100px'
-        }
-      }
-    ]
-  });
-
-  $(".page-slider").slick({
+  $(".single-slider").slick({
     mobileFirst: true,
     slidesToShow: 1,
     dots: true,
