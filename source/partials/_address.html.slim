@@ -1,0 +1,17 @@
+- html_class ||= nil
+
+div class=html_class
+  = dato.contacts_page.address
+  br
+  = link_to dato.contacts_page.phone,
+    "tel:#{dato.contacts_page.phone}",
+    class: "#{html_class}__link",
+    title: t('actions.call_title'),
+    target: "_blank"
+
+  =< "•"
+  =< link_to dato.contacts_page.email,
+    "mailto:#{dato.contacts_page.email}",
+    class: "#{html_class}__link",
+    title: t('actions.mail_title'),
+    target: "_blank"

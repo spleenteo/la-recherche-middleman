@@ -11,21 +11,8 @@ footer.site-footer
     = partial "partials/main-nav",
       locals: {html_class: "site-footer__nav"}
 
-    .site-footer__address
-      = dato.contacts_page.address
-      br
-      = link_to dato.contacts_page.phone,
-        "tel:#{dato.contacts_page.phone}",
-        class: "site-footer__link",
-        title: t('actions.call_title'),
-        target: "_blank"
-
-      =< "•"
-      =< link_to dato.contacts_page.email,
-        "mailto:#{dato.contacts_page.email}",
-        class: "site-footer__link",
-        title: t('actions.mail_title'),
-        target: "_blank"
+    = partial "partials/address",
+      locals: {html_class: "site-footer__address"}
 
     .site-footer__credits
       = link_to t('footer.credits_label'),

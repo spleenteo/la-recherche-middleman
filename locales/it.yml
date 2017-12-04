@@ -20,6 +20,27 @@ it:
     features: "Caratteristiche"
     more: "Altri tavoli"
 
+  contacts:
+    form:
+      title: "Scrivici una email"
+      name:
+        label: "Nome e cognome"
+        placeholder: "Il tuo nome"
+
+      email:
+        label: "Email"
+        placeholder: "La tua email"
+
+      content:
+        label: "Messaggio"
+        placeholder: "Il contenuto"
+
+      privacy:
+        label: "Ho preso visione e accetto i termini della"
+
+      submit:
+        label: "Invia"
+
   footer:
     dato_title: "CMS per siti statici"
     credits_label: "Design e development by Cantiere Creativo"

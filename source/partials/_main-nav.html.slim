@@ -23,7 +23,7 @@ ul class=html_class
         title: t('nav.products')
 
       = partial "partials/products-nav",
-        locals: {html_class: html_class}
+        locals: {html_class: html_class, show_sl_categories: show_sl_categories}
 
   li class="#{html_class}__item"
     = link_to t('nav.atmospheres'),
