@@ -22,7 +22,7 @@
   h2.page__subtitle
     = t('contacts.form.title')
 
-  form.form
+  form.form action="https://formspree.io/#{dato.contacts_page.email}" method="POST"
     .form__field
       = text_field_tag :text,
         value: "",
@@ -47,7 +47,7 @@
     .form__field: .align--center
       label.input--checkbox
         input required="required" type="checkbox"
-          span.input__label
+          span.input__label.formatted-content
             = t('contacts.form.privacy.label')
             =< link_to "Privacy Policy",
               "//www.iubenda.com/privacy-policy/#{I18n.t('iubenda_id')}",
