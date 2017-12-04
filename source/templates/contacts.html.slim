@@ -12,13 +12,13 @@
 .wrap: .align--center: section.page
   h1.page__title= page.title
 
-.wrap--on-wall: .google-map
+.wrap--on-wall: #map.google-map data-lat="#{page.map.latitude}" data-lon="#{page.map.longitude}"
 
-.wrap: section.page: .align--center
+.wrap: .align--center: section.page: .page__spacer
   = partial "partials/address",
       locals: {html_class: "page__text"}
 
-.space--both-5: .wrap--small: section.page
+.space--both-5: .wrap--small: section.page: .align--center
   h2.page__subtitle
     = t('contacts.form.title')
 
@@ -57,3 +57,40 @@
       = submit_tag :button,
         value: t('contacts.form.submit.label'),
         class: "button--rev button--brown-bg"
+
+- content_for(:page_javascript)
+  javascript:
+    function initMap() {
+      var container = document.getElementById('map');
+      if (!container) {
+        return;
+      }
+      var lat = parseFloat(container.getAttribute("data-lat"));
+      var lon = parseFloat(container.getAttribute("data-lon"));
+      var pointer = {lat: lat, lng: lon }
+      var map = new google.maps.Map(container, {
+        zoom: 13,
+        center: {lat: lat, lng: lon },
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.TOP_CENTER
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_CENTER
+        },
+        scaleControl: false,
+        streetViewControl: false,
+        scrollwheel: false,
+        draggable: true
+      });
+
+      var marker = new google.maps.Marker({
+        position: pointer,
+        map: map,
+      });
+    }
+
+  /= javascript_include_tag "https://maps.googleapis.com/maps/api/js?callback=initMap"
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API']}&callback=initMap"
