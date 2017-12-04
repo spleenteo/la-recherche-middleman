@@ -1,0 +1,27 @@
+- parent ||= nil
+
+- content_for(:nav_html_class) { "site-header--transparent"}
+
+- content_for(:head)
+  == dato_meta_tags(page)
+
+header.hero
+  .hero__background
+    h1.hero__background__title= page.title
+
+.space--both-5: .wrap: .align--center: nav.nav--breadcrumbs
+  .nav__item
+    = link_to t('nav.homepage'),
+      "/#{I18n.locale}/",
+      title: t('nav.homepage')
+
+  .nav__item= t('nav.products')
+  .nav__item
+    = page.title
+
+section
+  .wrap--on-tab: .grid--center
+    - second_level_categories.each do |category|
+      .grid__item.lap-6-12.wall-4-12: .space--bottom-5
+        = partial "partials/category_preview",
+          locals: {category: category, class_modifier: "showcase"}

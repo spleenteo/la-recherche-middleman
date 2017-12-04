@@ -75,7 +75,7 @@
 /* Dots
 
 .slick-dotted.slick-slider
-  margin-bottom: 30px
+  margin-bottom: -7px
 
 .slick-dots
   position: absolute
@@ -140,12 +140,14 @@
   +at-breakpoint(wall)
     position: relative
     &:before
+      visibility: visible
       transition: background-color 1s .1s $material-ease
       z-index: 1
       content: " "
       background-color: rgba($brown-color, .8)
-      +position(absolute, 0 0 7px 0)
+      +position(absolute, 0 0 0 0)
 
     &.slick-current
       &::before
+        visibility: hidden
         background-color: rgba($brown-color, 0)

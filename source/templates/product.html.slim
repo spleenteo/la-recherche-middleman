@@ -50,6 +50,7 @@
 - if page.related_products.any?
   .wrap: .space--both-5: .page
     .page__subtitle= t("product.more")
+    
   - page.related_products.each do |product|
     = partial "partials/product_preview",
       locals: {product: product}

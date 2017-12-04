@@ -11,22 +11,19 @@ header.hero
         title: dato.site.name
 
   .hero__heading
-    .hero__heading__action
+    .hero__heading__cta
       = t('actions.get_in')
 
     .wrap
       .hero__heading__title= dato.homepage.title
       .hero__heading__text= dato.homepage.text
+      .hero__heading__action
+        = link_to dato.about_page.title,
+          "/#{I18n.locale}/#{dato.about_page.slug}/",
+          class: "button",
+          title: dato.about_page.title
 
 .homepage-slider
   - dato.products_categories.select{ |category| !category.parent}.sort_by(&:position).each do |category|
     = partial "partials/category_preview",
       locals: {category: category, class_modifier: "showcase--big-white"}
-
-// about
-
-section
-  = link_to dato.about_page.title,
-    "/#{I18n.locale}/#{dato.about_page.slug}/",
-    class: "button",
-    title: dato.about_page.title

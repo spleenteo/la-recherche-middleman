@@ -1,0 +1,30 @@
+- content_for(:nav_html_class) { "site-header--transparent"}
+
+- content_for(:head)
+  == dato_meta_tags(page)
+
+header.hero
+  .hero__background
+    h1.hero__background__title= page.title
+
+.space--both-5: .wrap: .align--center: nav.nav--breadcrumbs
+  .nav__item
+    = link_to t('nav.homepage'),
+      "/#{I18n.locale}/",
+      title: t('nav.homepage')
+
+  .nav__item= t('nav.products')
+
+  .nav__item
+    = link_to parent.title,
+      "/#{I18n.locale}/#{page.parent.slug}/",
+      title: parent.title
+
+  .nav__item= page.title
+
+section
+  .wrap--on-tab: .grid--center
+    - products.each do |product|
+      .grid__item.lap-6-12.wall-4-12: .space--bottom-5
+        = partial "partials/product_preview",
+          locals: {product: product, class_modifier: "showcase--white"}

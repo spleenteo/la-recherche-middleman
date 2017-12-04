@@ -77,16 +77,15 @@ dato.tap do |dato|
         locale: locale
 
       dato.products_categories.select{ |category| !category.parent }.each do |category|
-        category_products = dato.products.select{ |product| product.category == category}
         proxy "/#{locale}/#{category.slug}/index.html",
-          "/templates/category.html",
-          locals: { page: category, products: category_products },
+          "/templates/first-level-category.html",
+          locals: { page: category, second_level_categories: category.children },
           locale: locale
 
         category.children.each do |children_category|
           category_products = dato.products.select{ |products| products.category == children_category}
           proxy "/#{locale}/#{category.slug}/#{children_category.slug}/index.html",
-            "/templates/category.html",
+            "/templates/second-level-category.html",
             locals: { page: children_category, parent: category, products: category_products },
             locale: locale
         end

@@ -27,6 +27,12 @@
   text-transform: uppercase
   font-variant: small-caps
 
+  .nav__item
+    +heading-font-family
+
+    a
+      +hover-transition
+
   .nav__item:before
     content: "\00A0/\00A0"
     color: $light-body-color
@@ -61,4 +67,3 @@
       display: table-cell
       margin: 0
       white-space: nowrap
-

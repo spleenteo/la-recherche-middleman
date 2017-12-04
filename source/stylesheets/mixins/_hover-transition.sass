@@ -1,0 +1,10 @@
+@mixin hover-transition
+  transition: opacity .2s $material-ease
+
+  .no-touchevents &:hover
+    opacity: .8
+
+  &:not(a)
+    transition: none
+    .no-touchevents &:hover
+      opacity: 1

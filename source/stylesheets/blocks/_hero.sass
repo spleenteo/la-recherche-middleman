@@ -29,6 +29,12 @@
   +vertical-padding(3)
   background-color: $brown-color
   color: $rev-body-color
+  position: relative
+
+.hero__heading__cta
+  +color: $primary-color
+  +center-horizontally
+  margin-top: -20px
 
 .hero__heading__title
   +heading-font-family
@@ -36,11 +42,14 @@
   +margin-bottom(2)
 
 .hero__heading__text
+  +vertical-margin(2)
+
+.hero__heading__action
 
 +at-breakpoint(lap)
   .hero__heading
     +horizontal-padding(3)
-      
+
   .hero__background
     height: 600px
 
@@ -53,5 +62,6 @@
 
   .hero__background__title
     width: 500px
+    +font-size(beta)
     img
       max-width: 500px
