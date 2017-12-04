@@ -1,5 +1,5 @@
 - class_modifier ||= nil
-- image_url = product.images_gallery.first.url(w: 800, h: 600, fit: "crop", crop: "fit")
+- image_url = product.images_gallery.first.url(w: 800, h: 600, fit: "crop", crop: "fit", format: "pjpg")
 
 = link_to "/#{I18n.locale}/#{product.slug}/",
   class: "showcase #{class_modifier}",

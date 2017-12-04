@@ -1,10 +1,12 @@
+- image_url = page.cover.url(w: 1920, h: 800, fit: "crop", crop: "fit", format: "pjpg")
+
 - content_for(:nav_html_class) { "site-header--transparent"}
 
 - content_for(:head)
   == dato_meta_tags(page)
 
 header.hero
-  .hero__background
+  .hero__background style="background-image: url('#{image_url}')"
     h1.hero__background__title= page.title
 
 .space--both-5: .wrap: .align--center: nav.nav--breadcrumbs

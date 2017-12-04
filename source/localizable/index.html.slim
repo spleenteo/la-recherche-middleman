@@ -29,5 +29,5 @@ header.hero
 #over-viewport
   .single-slider
     - dato.products_categories.select{ |category| !category.parent}.sort_by(&:position).each do |category|
-      = partial "partials/category_preview",
+      .single-slider__item= partial "partials/category_preview",
         locals: {category: category, class_modifier: "showcase--big-white"}
