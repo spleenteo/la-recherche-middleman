@@ -11,7 +11,7 @@ activate :asset_hash
 activate :directory_indexes
 activate :pagination
 activate :dato,
-  token: '5e4813821b24ea5a1c90fc72132454',
+  token: ENV['DATO_TOKEN'],
   live_reload: true
 
 activate :external_pipeline,
