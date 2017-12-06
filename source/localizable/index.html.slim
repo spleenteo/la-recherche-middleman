@@ -3,7 +3,7 @@
 
 - content_for(:nav_html_class) { "site-header--transparent site-header--no-logo"}
 
-header.hero
+header.hero--tall
   .hero__background style="background-image: url('#{dato.homepage.cover.url(w: '1920' )}')"
     .hero__background__title
       = image_tag "logo-full-rev.svg",
@@ -12,12 +12,13 @@ header.hero
 
   .hero__heading
     .hero__heading__cta
-      = link_to t('actions.get_in'),
-        "#over-viewport",
-        class: "button--primary button--expand button--huge button--brown-bg js-scroll",
+      = link_to "#over-viewport",
+        class: "hero__heading__cta__link js-scroll",
         title: t('actions.get_in')
+          = t('actions.get_in')
+          i.icon--arrow-down
 
-    .wrap
+    .wrap--small: #over-viewport
       .hero__heading__title= dato.homepage.title
       .hero__heading__text= dato.homepage.text
       .hero__heading__action
@@ -26,8 +27,7 @@ header.hero
           class: "button--primary",
           title: dato.about_page.title
 
-#over-viewport
-  .single-slider
-    - dato.products_categories.select{ |category| !category.parent}.sort_by(&:position).each do |category|
-      .single-slider__item= partial "partials/category_preview",
-        locals: {category: category, class_modifier: "showcase--big-white"}
+.single-slider
+  - dato.products_categories.select{ |category| !category.parent}.sort_by(&:position).each do |category|
+    .single-slider__item= partial "partials/category_preview",
+      locals: {category: category, class_modifier: "showcase--big-white"}

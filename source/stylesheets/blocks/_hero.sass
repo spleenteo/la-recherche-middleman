@@ -1,4 +1,5 @@
 .hero
+  position: relative
 
 .hero__background
   height: 430px
@@ -36,25 +37,42 @@
   +position(absolute)
   left: 50%
   transform: translateX(-50%) translateY(-100%)
-  +margin-top(-3)
   width: 300px
+
+.hero__heading__cta__link
+  display: block
+  +heading-font-family
+  color: $primary-color
+  background-color: $secondary-color
+  +padding(2)
+  width: 100%
+  i
+    display: block
 
 .hero__heading__title
   +heading-font-family
   +font-size(delta)
-  +margin-bottom(2)
+  +vertical-margin(3)
 
 .hero__heading__text
-  +vertical-margin(2)
+  +vertical-margin(3)
+  line-height: 1.6
 
 .hero__heading__action
+
+.hero--tall
+  @extend .hero
+  .hero__background
+    height: 550px
+
+.hero--with-nav-overlay
+  @extend .hero
 
 +at-breakpoint(lap)
   .hero__heading
     +padding(5)
 
   .hero__heading__cta
-    +margin-top(-5)
 
   .hero__background
     height: 600px
@@ -66,6 +84,14 @@
   .hero__heading__text
     +font-size(epsilon)
 
+  .hero--tall
+    .hero__background
+      height: 600px
+
+  .hero--with-nav-overlay
+    .hero__background__title
+      +margin-top(6)
+
 +at-breakpoint(wall)
   .hero__background
     height: 800px
@@ -75,3 +101,11 @@
     +font-size(beta)
     img
       max-width: 500px
+
+  .hero--tall
+    .hero__background
+      height: 800px
+
+  .hero--with-nav-overlay
+    .hero__background__title
+      +margin-top(9)

@@ -3,7 +3,11 @@
 
 .single-slider
   - page.images_gallery.each do |image|
-    = image_tag image.url( w: 1920, h: 900, fit: "crop", crop: "fit", format: "pjpg"), alt: image.alt, title: image.title
+    - image_url = image.url( w: 1920, h: 900, fit: "crop", crop: "fit", format: "pjpg")
+
+    .single-slider__item
+      .hero
+        .hero__background style="background-image: url('#{image_url}')"
 
 .wrap: .page
   .page__spacer: .align--center.align--left-on-wall: h1.page__title= page.title
