@@ -42,7 +42,8 @@
       .page__spacer: .page__text: .formatted-content= page.text
 
       - if product.price.present?
-        = t('product.price', price: product.price)
+        .space--top-1
+          = t('product.price', price: product.price)
 
     .grid__item.wall-4-12.wall-push-2-12
       .page__spacer
