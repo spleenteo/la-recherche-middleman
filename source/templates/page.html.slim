@@ -1,18 +1,45 @@
 - content_for(:head)
   == dato_meta_tags(page)
 
-.space--both-5: .wrap: .align--center: nav.nav--breadcrumbs
-  .nav__item
-    = link_to t('nav.homepage'),
-      "/#{I18n.locale}/",
-      title: t('nav.homepage')
-
-  .nav__item= page.title
-
 section.page
-  header
-    .wrap
-      .align--center: h1.page__title= page.title
+  - if page.respond_to?(:cover) && page.cover.present?
+    - content_for(:nav_html_class) { "site-header--transparent"}
+
+    = partial "partials/page-hero",
+      locals: {page: page}
+
+    = partial "partials/page-breadcrumbs"
+
+  - else
+    = partial "partials/page-breadcrumbs"
+
+    header
+      .wrap
+        .align--center: h1.page__title= page.title
 
   .wrap--small
     .align--center: .page__spacer: .page__text: .formatted-content= page.text
+
+  .page__blocks
+    - if page.respond_to?(:content_modules)
+      - page.content_modules.each do |content_module|
+        - if content_module.item_type.api_key == "text_module"
+          .wrap--small
+            .align--center: .page__spacer: .page__text: .formatted-content= content_module.text
+
+        - elsif content_module.item_type.api_key == "image_module"
+          - image_url = content_module.image.url(w: 1920, h: 800, fit: "crop", crop: "fit", format: "pjpg")
+
+          .page__blocks__item
+            .hero
+              .hero__background style="background-image: url('#{image_url}')"
+
+        - elsif content_module.item_type.api_key == "images_module"
+          .page__blocks__item
+            .single-slider
+              - content_module.images.each do |image|
+                - image_url = image.url(w: 1920, h: 800, fit: "crop", crop: "fit", format: "pjpg")
+
+                .single-slider__item
+                  .hero
+                    .hero__background style="background-image: url('#{image_url}')"

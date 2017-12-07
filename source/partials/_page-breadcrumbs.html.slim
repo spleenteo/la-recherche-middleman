@@ -1,0 +1,7 @@
+.space--both-5: .wrap: .align--center: nav.nav--breadcrumbs
+  .nav__item
+    = link_to t('nav.homepage'),
+      "/#{I18n.locale}/",
+      title: t('nav.homepage')
+
+  .nav__item= page.title

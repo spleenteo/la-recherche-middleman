@@ -23,7 +23,7 @@ $(document).ready(function(){
     dots: true,
     infinite: true,
     centerMode: true,
-    centerPadding: '0px',
+    centerPadding: '0',
     responsive: [
       {
         breakpoint: 1300,

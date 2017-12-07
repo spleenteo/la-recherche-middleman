@@ -2,7 +2,7 @@
 - show_sl_categories ||= nil
 
 ul class="#{html_class}__fl"
-  - dato.products_categories.select{ |category| !category.parent }.sort_by(&:position).each do |category|
+  - dato.products_categories.select{ |category| !category.parent && !category.show_in_main_nav}.sort_by(&:position).each do |category|
     li class="#{html_class}__fl__item"
       = link_to category.title,
         "/#{I18n.locale}/#{category.slug}/",

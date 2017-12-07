@@ -37,6 +37,14 @@ ul class=html_class
       class: "#{html_class}__link",
       title: dato.materials_page.title
 
+  - dato.products_categories.select{ |category| category.show_in_main_nav}.each do |category|
+    li class="#{html_class}__item"
+      - category_url = category.parent? ? "/#{I18n.locale}/#{category.parent.slug}/#{category.slug}" : "/#{I18n.locale}/#{category.slug}"
+      = link_to category.title,
+        category_url,
+        class: "#{html_class}__link",
+        title: category.title
+
   li class="#{html_class}__item"
     = link_to dato.contacts_page.title,
       "/#{I18n.locale}/#{dato.contacts_page.slug}",

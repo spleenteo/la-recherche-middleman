@@ -6,9 +6,8 @@
 - content_for(:head)
   == dato_meta_tags(page)
 
-header.hero--with-nav-overlay
-  .hero__background style="background-image: url('#{image_url}')"
-    h1.hero__background__title= page.title
+= partial "partials/page-hero",
+  locals: {page: page}
 
 .space--both-5: .wrap: .align--center: nav.nav--breadcrumbs
   .nav__item

@@ -20,6 +20,7 @@ it:
   product:
     features: "Caratteristiche"
     more: "Altri prodotti"
+    price: "Prezzo: %{price}€"
     cta:
       title: "Sei interessato a questo prodotto?"
       label: "Contattaci"
