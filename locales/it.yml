@@ -46,6 +46,12 @@ it:
       submit:
         label: "Invia"
 
+  category:
+    catalogue:
+      download_label: "Scarica il catalogo"
+      title: "Catalogo %{category}"
+      text: "Scarica il catalogo in PDF"
+
   footer:
     dato_title: "CMS per siti statici"
     credits_label: "Design e development by Cantiere Creativo"

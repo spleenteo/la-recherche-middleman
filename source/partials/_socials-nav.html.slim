@@ -1,14 +1,16 @@
 - html_class ||= nil
 
 div class=html_class
-  = link_to dato.contacts_page.facebook_url,
-    class: "#{html_class}__link",
-    title: "Facebook",
-    target: "_blank"
-      i.icon--facebook
+  - if dato.contacts_page.facebook_url.present?
+    = link_to dato.contacts_page.facebook_url,
+      class: "#{html_class}__link",
+      title: "Facebook",
+      target: "_blank"
+        i.icon--facebook
 
-  = link_to dato.contacts_page.twitter_url,
-    class: "#{html_class}__link",
-    title: "Twitter",
-    target: "_blank"
-      i.icon--twitter
+  - if dato.contacts_page.twitter_url.present?
+    = link_to dato.contacts_page.twitter_url,
+      class: "#{html_class}__link",
+      title: "Twitter",
+      target: "_blank"
+        i.icon--twitter

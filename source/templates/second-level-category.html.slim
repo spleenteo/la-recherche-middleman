@@ -1,5 +1,3 @@
-- image_url = page.cover.url(w: 1920, h: 800, fit: "crop", crop: "fit", format: "pjpg")
-
 - content_for(:nav_html_class) { "site-header--transparent"}
 
 - content_for(:head)
@@ -25,7 +23,19 @@
 
 section
   .wrap--on-tab: .grid--center
-    - products.each do |product|
+    - products.sort_by(&:title).each do |product|
       .grid__item.lap-6-12.wall-4-12: .space--bottom-5
         = partial "partials/product_preview",
           locals: {product: product, class_modifier: "showcase--white"}
+
+- if page.catalogue.present?
+  section
+    .space--both-3: .wrap: .grid--center
+      .grid__item.wall-6-12
+        = link_to page.catalogue.url,
+          class: "cta",
+          title: t("category.catalogue.download_label"),
+          target: "_blank"
+            .cta__heading
+              .cta__title= t("category.catalogue.title", category: page.title)
+              .cta__action= t("category.catalogue.text")

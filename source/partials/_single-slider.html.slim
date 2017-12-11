@@ -1,0 +1,7 @@
+div class="#{'single-slider' if slides.size > 1 }"
+  - slides.each do |image|
+    - image_url = image.url(w: 1920, h: 800, fit: "crop", crop: "fit", format: "pjpg")
+
+    .single-slider__item
+      .hero
+        .hero__background style="background-image: url('#{image_url}')"

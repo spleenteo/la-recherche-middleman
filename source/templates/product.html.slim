@@ -1,13 +1,8 @@
 - content_for(:head)
   == dato_meta_tags(page)
 
-.single-slider
-  - page.images_gallery.each do |image|
-    - image_url = image.url( w: 1920, h: 900, fit: "crop", crop: "fit", format: "pjpg")
-
-    .single-slider__item
-      .hero
-        .hero__background style="background-image: url('#{image_url}')"
+= partial "partials/single-slider",
+  locals: {slides: page.images_gallery}
 
 .wrap: .page
   .page__spacer: .align--center.align--left-on-wall: h1.page__title= page.title
@@ -17,6 +12,8 @@
       = link_to t('nav.homepage'),
         "/#{I18n.locale}/",
         title: t('nav.homepage')
+
+    .nav__item= t('nav.products')
 
     - if page.category.parent.present?
       .nav__item
@@ -41,9 +38,9 @@
     .grid__item.wall-6-12
       .page__spacer: .page__text: .formatted-content= page.text
 
-      - if product.price.present?
+      - if page.price.present?
         .space--top-1
-          = t('product.price', price: product.price)
+          = t('product.price', price: page.price)
 
     .grid__item.wall-4-12.wall-push-2-12
       .page__spacer
