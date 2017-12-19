@@ -1,0 +1,10 @@
+section
+  .space--both-3: .wrap: .grid--center
+    .grid__item.wall-6-12
+      = link_to page.catalogue.url,
+        class: "cta",
+        title: t("category.catalogue.download_label"),
+        target: "_blank"
+          .cta__heading
+            .cta__title= page.catalogue_title.present? ? page.catalogue_title : t("category.catalogue.title", category: page.title)
+            .cta__action= t("category.catalogue.text")
