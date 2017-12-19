@@ -68,6 +68,12 @@
 .hero--with-nav-overlay
   @extend .hero
 
+.hero--clean
+  @extend .hero
+  .hero__background
+    &:after
+      display: none
+
 +at-breakpoint(lap)
   .hero__heading
     +padding(5)

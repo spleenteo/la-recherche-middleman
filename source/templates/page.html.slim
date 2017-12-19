@@ -30,9 +30,9 @@ section.page
         - elsif content_module.item_type.api_key == "image_module"
           - image_url = content_module.image.url(w: 1920, h: 800, fit: "crop", crop: "fit", format: "pjpg")
 
-          .hero
+          .hero--clean
             .hero__background style="background-image: url('#{image_url}')"
 
         - elsif content_module.item_type.api_key == "images_module"
           = partial "partials/single-slider",
-            locals: {slides: content_module.images}
+            locals: {slides: content_module.images, html_class: "hero--clean"}
