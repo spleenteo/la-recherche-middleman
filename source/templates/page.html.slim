@@ -28,10 +28,14 @@ section.page
             .align--center: .page__spacer: .page__text: .formatted-content= content_module.text
 
         - elsif content_module.item_type.api_key == "image_module"
-          - image_url = content_module.image.url(w: 1920, h: 800, fit: "crop", crop: "fit", format: "pjpg")
+          - image_url = content_module.image.url(w: 1320, h: 1320, fit: "clip", format: "pjpg")
 
-          .hero--clean
-            .hero__background style="background-image: url('#{image_url}')"
+          .space--bottom-3.space--bottom-5-on-desk
+            .align--center
+              .wrap
+                = image_tag image_url,
+                  alt: content_module.image.alt,
+                  title: content_module.image.title
 
         - elsif content_module.item_type.api_key == "images_module"
           = partial "partials/single-slider",
