@@ -63,6 +63,10 @@ helpers do
   end
 end
 
+proxy "/_redirects",
+  "/templates/redirects.txt",
+  layout: false
+
 dato.tap do |dato|
   [:it, :en].each do |locale|
     I18n.with_locale(locale) do
