@@ -7,7 +7,7 @@ var extractSass = new ExtractTextPlugin('stylesheets/[name].css');
 module.exports = {
   entry: {
     application: __dirname + '/source/javascripts/index.js',
-    styles: __dirname + '/source/stylesheets/application.sass'
+    styles: __dirname + '/source/stylesheets/_application.sass'
   },
   resolve: {
     root: __dirname + '/source/javascripts',
