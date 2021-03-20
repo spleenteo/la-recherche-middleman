@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'middleman', '>= 4.0.0'
+gem "activesupport"
+gem "html_truncator"
+gem "middleman", "~> 4.2"
 gem 'middleman-dato'
 gem 'middleman-paginate'
 gem 'middleman-livereload'
 gem 'middleman-search_engine_sitemap'
 gem 'middleman-minify-html'
-gem 'slim', '>= 3'
+gem 'slim'
+gem "middleman-svg"
+gem "slim_lint"
