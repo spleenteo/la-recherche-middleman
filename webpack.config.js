@@ -1,17 +1,28 @@
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require("autoprefixer");
 
-var extractSass = new ExtractTextPlugin('stylesheets/[name].css');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const MinifyPlugin = require("babel-minify-webpack-plugin");
 
+const extractMiniCss = new MiniCssExtractPlugin({
+  filename: "stylesheets/[name].css"
+});
 module.exports = {
   entry: {
     application: __dirname + '/source/javascripts/index.js',
     styles: __dirname + '/source/stylesheets/_application.sass'
   },
   resolve: {
-    root: __dirname + '/source/javascripts',
+    modules: [
+      path.join(__dirname, 'source/stylesheets'),
+      path.join(__dirname, 'source/javascripts'),
+      "node_modules"
+    ],
     alias: {
+      modernizr$: path.resolve(__dirname, ".modernizrrc.js"),
       'slick': 'slick-carousel/slick/slick',
       'smooth-scroll': 'smooth-scroll/dist/js/smooth-scroll.polyfills'
     }
@@ -21,17 +32,51 @@ module.exports = {
     filename: 'javascripts/[name].js',
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /.*\.sass$/,
-        loader: extractSass.extract(['css', 'postcss', 'sass', 'import-glob-loader'])
+        loader: "webpack-modernizr-loader",
+        test: /\.modernizrrc\.js$/
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+      {
+        enforce: 'pre',
+        test: /\.s[ac]ss/,
+        use: 'import-glob-loader'
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          { loader: "css-loader" },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [autoprefixer()]
+            }
+          },
+          { loader: "sass-loader" }
+        ]
       }
     ]
   },
   plugins: [
-    extractSass
-  ],
-  postcss: function postcss() {
-    return [autoprefixer];
-  },
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
+    extractMiniCss,
+    new MinifyPlugin(),
+    new CompressionPlugin({
+      cache: true
+    })
+  ]
 };
