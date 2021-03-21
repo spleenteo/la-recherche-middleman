@@ -2,7 +2,7 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
-set :url_root, ''
+set :url_root, ENV.fetch('BASE_URL')
 
 ignore '/templates/*'
 
@@ -10,15 +10,18 @@ activate :i18n, :langs => [:it, :en], :mount_at_root => false
 activate :asset_hash
 activate :directory_indexes
 activate :pagination
-activate :dato,
-  token: ENV['DATO_TOKEN'],
-  live_reload: true
+activate :dato, token: ENV.fetch('DATO_TOKEN'), live_reload: true
+
+webpack_command =
+  if build?
+    "yarn run build"
+  else
+    "yarn run dev"
+  end
 
 activate :external_pipeline,
   name: :webpack,
-  command: build? ?
-    "./node_modules/webpack/bin/webpack.js --bail -p" :
-    "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
+  command: webpack_command,
   source: ".tmp/dist",
   latency: 1
 
