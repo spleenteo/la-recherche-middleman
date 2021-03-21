@@ -36,6 +36,9 @@ end
 
 configure :development do
   activate :livereload
+  activate :search_engine_sitemap,
+           default_priority: 0.5,
+           default_change_frequency: "weekly"
 end
 
 helpers do
