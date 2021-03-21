@@ -10,4 +10,3 @@ gem 'middleman-search_engine_sitemap'
 gem 'middleman-minify-html'
 gem 'slim'
 gem "middleman-svg"
-gem "slim_lint"
