@@ -10,10 +10,11 @@ ul class=html_class
       title: t('nav.homepage')
 
   li class="#{html_class}__item"
-    = link_to dato.about_page.title,
-      "/#{I18n.locale}/#{dato.about_page.slug}",
+    = link_to dato.atmospheres_page.title,
+      "/#{I18n.locale}/#{dato.atmospheres_page.slug}",
       class: "#{html_class}__link",
-      title: dato.about_page.title
+      title: dato.atmospheres_page.title
+
 
   - if show_products
     li class="#{html_class}__item js-products-toggler"
@@ -25,25 +26,26 @@ ul class=html_class
       = partial "partials/products-nav",
         locals: {html_class: html_class, show_sl_categories: show_sl_categories}
 
-  li class="#{html_class}__item"
-    = link_to dato.atmospheres_page.title,
-      "/#{I18n.locale}/#{dato.atmospheres_page.slug}",
-      class: "#{html_class}__link",
-      title: dato.atmospheres_page.title
-
-  li class="#{html_class}__item"
-    = link_to dato.materials_page.title,
-      "/#{I18n.locale}/#{dato.materials_page.slug}",
-      class: "#{html_class}__link",
-      title: dato.materials_page.title
-
   - dato.products_categories.select{ |category| category.show_in_main_nav}.each do |category|
     li class="#{html_class}__item"
-      - category_url = category.parent? ? "/#{I18n.locale}/#{category.parent.slug}/#{category.slug}" : "/#{I18n.locale}/#{category.slug}"
+      - category_url = category.parent.present? ? "/#{I18n.locale}/#{category.parent.slug}/#{category.slug}" : "/#{I18n.locale}/#{category.slug}"
       = link_to category.title,
         category_url,
         class: "#{html_class}__link",
         title: category.title
+
+  li class="#{html_class}__item"
+    = link_to dato.about_page.title,
+      "/#{I18n.locale}/#{dato.about_page.slug}",
+      class: "#{html_class}__link",
+      title: dato.about_page.title
+
+  / li class="#{html_class}__item"
+  /   = link_to dato.materials_page.title,
+  /     "/#{I18n.locale}/#{dato.materials_page.slug}",
+  /     class: "#{html_class}__link",
+  /     title: dato.materials_page.title
+
 
   li class="#{html_class}__item"
     = link_to dato.contacts_page.title,
