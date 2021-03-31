@@ -40,3 +40,7 @@ section.page
         - elsif content_module.item_type.api_key == "images_module"
           = partial "partials/single-slider",
             locals: {slides: content_module.images, html_class: "hero--clean"}
+
+  - if page.respond_to?(:catalogue) && page.catalogue.present?
+    = partial "partials/category_catalogue",
+      locals: {page: page}
