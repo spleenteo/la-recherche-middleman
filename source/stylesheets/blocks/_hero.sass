@@ -13,18 +13,25 @@
     background-color: rgba($brown-color, .6)
     +position(absolute, 0 0 0 0)
 
-.hero__background__title
+.hero__background__content
+  text-align: center
   +padding(2)
   +center
-  +heading-font-family
-  +font-size(delta)
-  text-align: center
-  width: 300px
+  width: 80%
   color: $rev-body-color
   z-index: 2
 
   img
     max-width: 300px
+
+.hero__background__title
+  +heading-font-family
+  +font-size(delta)
+  text-align: center
+
+.hero__background__description
+  +font-size(milli)
+  text-transform: none
 
 .hero__heading
   +vertical-padding(3)
@@ -87,6 +94,7 @@
   .hero__heading__title
     +font-size(gamma)
 
+  .hero__background__description,
   .hero__heading__text
     +font-size(epsilon)
 
@@ -102,11 +110,13 @@
   .hero__background
     height: 800px
 
-  .hero__background__title
-    width: 500px
-    +font-size(beta)
+  .hero__background__content
+    width: 80%
     img
       max-width: 500px
+  .hero__background__title
+    +font-size(beta)
+  .hero__background__description
 
   .hero--tall
     .hero__background

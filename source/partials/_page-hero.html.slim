@@ -2,4 +2,10 @@
 
 header.hero--with-nav-overlay
   .hero__background style="background-image: url('#{image_url}')"
-    h1.hero__background__title= page.title
+  
+    .hero__background__content
+      h1.hero__background__title = page.title
+      - if page.respond_to?(:description) && page.description.present?
+        .hero__background__description = page.description
+
+
