@@ -26,7 +26,7 @@ section
     - products.sort_by(&:title).each do |product|
       .grid__item.lap-6-12.wall-4-12: .space--bottom-5
         = partial "partials/product_preview",
-          locals: {product: product, class_modifier: "showcase--white"}
+          locals: {product: product, class_modifier: "showcase--white showcase--small"}
 
 - if page.catalogue.present?
   = partial "partials/category_catalogue",
