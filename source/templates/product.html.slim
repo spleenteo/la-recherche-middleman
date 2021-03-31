@@ -5,7 +5,7 @@
   locals: {slides: page.images_gallery, html_class: "hero--clean"}
 
 .wrap: .page
-  .page__spacer: .align--center.align--left-on-wall: h1.page__title= page.title
+  .page__spacer: .align--center.align--left-on-wall
 
   nav.nav--breadcrumbs
     .nav__item
@@ -34,18 +34,27 @@
 
     .nav__item= page.title
 
+  .page__spacer: h1.page__title= page.text
+
   .grid--wide
     .grid__item.wall-6-12
-      .page__spacer: .page__text: .formatted-content= page.text
+      .page__spacer
+        .page__subtitle= t("product.features")
+        .page__text: .formatted-content= page.specs_text
+      .page__spacer: .page__text Codice prodotto: #{page.title}
 
+    .grid__item.wall-4-12.wall-push-2-12
       - if page.price.present?
         .space--top-1
           = t('product.price', price: page.price)
 
-    .grid__item.wall-4-12.wall-push-2-12
-      .page__spacer
-        .page__subtitle= t("product.features")
-        .page__text: .formatted-content= page.specs_text
+      - if page.sumup_url.present?
+        .space--top-1
+          = link_to "Acquista",
+                    page.sumup_url,
+                    target: "_blank",
+                    class: "button--huge button--brown-bg"
+
 
 .space--top-3: .wrap: .grid--center
   .grid__item.wall-6-12
